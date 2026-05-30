@@ -182,3 +182,8 @@ frontend-test-coverage:
     . ~/.deno/env && cd frontend && VITEST=true deno task test:run --coverage
 
 build-all: frontend-build build
+
+# Mirror the tangled.org upstream repo to the GitHub origin (branches + tags).
+# Pass extra args through, e.g. `just sync-upstream --dry-run` or `--prune`.
+sync-upstream *args:
+    ./scripts/sync-upstream.sh {{args}}
